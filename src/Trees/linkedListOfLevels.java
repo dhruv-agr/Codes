@@ -19,38 +19,3 @@ public class linkedListOfLevels {
     }
 }
 
-class BinTreeNode {
-    int val;
-    BinTreeNode left;
-    BinTreeNode right;
-
-    ArrayList<ArrayList<Integer>> levelLists = new ArrayList<ArrayList<Integer>>();
-
-
-    BinTreeNode(int val) {
-        this.val = val;
-    }
-
-    BinTreeNode() {
-
-    }
-    public ArrayList<ArrayList<Integer>> makeLists(BinTreeNode node,int level){
-        if(level <= levelLists.size()-1){
-            levelLists.get(level).add(node.val);
-        }
-        else{
-            ArrayList<Integer> sameLevelList = new ArrayList<Integer>();
-            sameLevelList.add(node.val);
-            levelLists.add(sameLevelList);
-
-        }
-
-        if(node.left !=null){
-            makeLists(node.left, level +1);
-        }
-        if(node.right !=null){
-            makeLists(node.right, level + 1);
-        }
-        return levelLists;
-    }
-}
